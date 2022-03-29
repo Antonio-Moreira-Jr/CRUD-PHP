@@ -1,6 +1,13 @@
 <?php
+
+//Iniciar conexão com o BD
+include_once 'php_action/db.connect.php';
+
 //Header
-include_once 'includes/header.php'; 
+include_once 'includes/header.php';
+
+// Pop Up que retorna se o cadastro foi efetuado com sucesso ou não;
+include_once 'includes/message.php';
 ?>
 
 <div class= "row">
@@ -17,18 +24,28 @@ include_once 'includes/header.php';
             </thead>
 
             <tbody>
+                  
+                  <?php
+                  //variável sql que vai ser responsável por executar o comando de consulta da tabela
+                  $sql = 'SELECT * FROM clientes';
+                  //Variável $resultado que possui a query da tabela cliente
+                  $resultado = mysqli_query($connect, $sql);
+                  //$dados que recebe o array
+                  while($dados = mysqli_fetch_array($resultado)):
+                  ?>
                   <tr>
-                        <td>Antonio</td>
-                        <td>Moreira</td>
-                        <td>moreiraantonio@gmail.com</td>
-                        <td>25</td>
-                        <td><a href="" class="btn-floating red"><i class="material-icons">edit</i></a></td>
-                        <td><a href="" class="btn-floating black"><i class="material-icons">delete</i></a></td>
+                        <td><?php echo $dados['nome']?> </td>
+                        <td><?php echo $dados['sobrenome']?> </td>
+                        <td><?php echo $dados['email']?> </td>
+                        <td><?php echo $dados['idade']?> </td>
+                        <td><a href="" class="btn-floating blue"><i class="material-icons">edit</i></a></td>
+                        <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
                   </tr>
+                 <?php endwhile; ?>    
             </tbody>
       </table>
       <br>
-      <a href="adicionar.php" class="btn">Adicionar Cliente</a>
+      <a href="adicionar.php" class="btn blue">Adicionar Cliente</a>
       
       </div>
 </div>
