@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,9 +24,19 @@
       <!--Let browser know website is optimized for mobile-->
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
-
 </head>
-
 <body>
+<nav>
+  
+    <div class="nav-wrapper blue darken-2 ">
+      <div class="container">
+        <a href="main.php" class="brand-logo"><i class="material-icons">cloud</i>Sistema de Cadastramento de Clientes</a>
+      </div>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="main.php"><i class="material-icons">search</i></a></li>
+        <li><a href="main.php"><i class="material-icons">view_module</i></a></li>
+        <li><a href="main.php"><i class="material-icons">refresh</i></a></li>
+        <li><a href="main.php"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </div>    
+</nav>

@@ -3,21 +3,22 @@
 session_start();
 //Iniciando com a conexão ao BD
 require_once 'db.connect.php';
-
-if(isset($_POST['btn-cadastrar'])):
+ //Variáveis sendo recebidas via metódo POST
+if(isset($_POST['btn-editar'])):
     $nome = mysqli_escape_string($connect, $_POST['nome']);
     $sobrenome = mysqli_escape_string($connect, $_POST['sobrenome']);
     $email = mysqli_escape_string($connect, $_POST['email']);
     $idade = mysqli_escape_string($connect, $_POST['idade']);
-
-    $sql = "INSERT INTO clientes (nome, sobrenome, email, idade) VALUES 
-    ('$nome', '$sobrenome', '$email', '$idade')";
+    
+    $id = mysqli_escape_string($connect, $_POST['id']);
+    
+    $sql = "UPDATE clientes SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', idade = '$idade' WHERE id ='$id'";
 
     if(mysqli_query($connect, $sql)):
-        $_SESSION['mensagem'] = "Cadastrado com Sucesso!!";        
+        $_SESSION['mensagem'] = "Cliente atualizado com Sucesso!!";        
         header('Location: ../main.php?sucesso');
     else:
-        $_SESSION['mensagem'] = "Erro ao cadastrar!!";
+        $_SESSION['mensagem'] = "Erro ao atualizar cliente!!";
         header('Location: ../main.php?erro');
     endif;
 endif;
