@@ -19,13 +19,16 @@
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+      <!-- Importanto CSS criado no VS Code -->
 
+      <link href="css/styles.css" rel="stylesheet">
 
       <!--Let browser know website is optimized for mobile-->
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<header>
 <nav>
   
     <div class="nav-wrapper blue darken-2 ">
@@ -40,3 +43,4 @@
       </ul>
     </div>    
 </nav>
+</header>

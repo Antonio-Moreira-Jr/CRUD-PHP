@@ -12,9 +12,9 @@ if(isset($_GET['id'])):
     $dados = mysqli_fetch_array($resultado);
 endif
 ?>
-
+<section class="conteudo">
 <div class= "row">
-      <div class= "col s12 m6 push-m3 ">
+      <div class= "col s12 m4 push-m3 ">
         <h3 class="light">Edição de Cliente</h3>
             <form action="php_action/update.php" method="POST">
                 <input type="hidden" name = "id" value = <?php echo $dados['id'];?>>
@@ -34,12 +34,14 @@ endif
                     <input type="number" name="idade" id="idade" value= "<?php echo $dados['idade'];?>" >
                     <label for="idade">Idade</label>
                 </div>
+                <div class="center">
                 <button type="submit" name="btn-editar" class="btn">Editar Cliente</button>
                 <a href="main.php" class="btn blue darken-2">Lista de Clientes</a>
+                </div>
             </form>      
       </div>
 </div>
-
+</section>
 <?php
 //Footer
 include_once 'includes/footer.php';

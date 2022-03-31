@@ -6,7 +6,7 @@
   M.AutoInit();
 </script>
 
-<footer class="page-footer blue darken-2">
+<footer class="page-footer blue darken-2 rodape">
           <div class="container center-align">
             <div class="row">
               <div class="col s12 16">
@@ -17,8 +17,7 @@
             <div class="container center-align">            
             © 2022 Copyright SM e AM            
           </div>            
-        </div>
-         
+        </div>         
 </footer>
 
 </body>

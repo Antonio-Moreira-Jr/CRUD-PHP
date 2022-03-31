@@ -4,7 +4,7 @@ include_once 'includes/header.php';
 //include_once 'php_action/create.php'; 
 
 ?>
-
+<section class="conteudo">
 <div class= "row">
       <div class= "col s12 m6 push-m3 ">
         <h3 class="light">Cadastro de Cliente</h3>
@@ -25,12 +25,14 @@ include_once 'includes/header.php';
                     <input type="number" name="idade" id="idade" required>
                     <label for="idade">Idade</label>
                 </div>
+                <div class="center">
                 <button type="submit" name="btn-cadastrar" class="btn">Cadastrar Cliente</button>
                 <a href="main.php" class="btn blue darken-2">Lista de Clientes</a>
+                </div>
             </form>      
       </div>
 </div>
-
+</section>
 <?php
 //Footer
 include_once 'includes/footer.php';

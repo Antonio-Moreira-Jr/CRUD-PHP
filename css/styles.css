@@ -1,0 +1,14 @@
+html, body{
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+}
+.conteudo{
+  flex: 1 0 auto;
+}
+.rodape{
+  flex-shrink: 0;  
+  padding: 10px;
+}

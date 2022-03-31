@@ -7,11 +7,11 @@ include_once 'includes/message.php';
 include_once 'includes/header.php';
 
 ?>
-
+<section class="conteudo">
 <div class= "row">
       <div class= "col s12 m6 push-m3">
       <h3 class="light">Clientes</h3>
-      <table class="striped"> 
+      <table class="striped z-depth-1"> 
             <thead>
                   <tr>
                         <th>Nome:</th>
@@ -66,6 +66,7 @@ include_once 'includes/header.php';
       
       </div>
 </div>
+</section>
 <?php
 //Footer
 include_once 'includes/footer.php';
