@@ -4,11 +4,12 @@ include_once 'includes/header.php';
 //include_once 'php_action/create.php'; 
 
 ?>
-<section class="conteudo">
+<!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
+<section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m6 push-m3">
         <h3 class="light">Cadastro de Cliente</h3>
-            <form action="php_action/create.php" method="POST">
+            <form action="php_action/create.php" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s12">
                     <input type="text" name="nome" id="nome" required>
                     <label for="nome">Nome</label>
@@ -28,7 +29,7 @@ include_once 'includes/header.php';
                  <!-- INICIO Imput Imagem -->
                     <div class="file-field input-field col s10">                    
                         <div class="btn blue darken-2">                        
-                            <input type="file" multiple>
+                            <input type="file" name="imagem">
                             <span>Imagem do Cliente</span>                            
                         </div>                        
                         <div class="file-path-wrapper">
@@ -44,6 +45,7 @@ include_once 'includes/header.php';
       </div>
 </div>
 </section>
+<!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <?php
 //Footer
 include_once 'includes/footer.php';

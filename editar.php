@@ -12,7 +12,8 @@ if(isset($_GET['id'])):
     $dados = mysqli_fetch_array($resultado);
 endif
 ?>
-<section class="conteudo">
+<!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
+<section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m4 push-m3 ">
         <h3 class="light">Edição de Cliente</h3>
@@ -42,6 +43,7 @@ endif
       </div>
 </div>
 </section>
+<!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <?php
 //Footer
 include_once 'includes/footer.php';

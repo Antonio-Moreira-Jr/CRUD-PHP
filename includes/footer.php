@@ -2,10 +2,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+<!-- Inicializa Modal: Tela Pop-up de Confirmação -->
 <script>
   M.AutoInit();
 </script>
-
+<!-- Footer pare inferiror da página  -->
 <footer class="page-footer blue darken-2 rodape">
           <div class="container center-align">
             <div class="row">
@@ -19,7 +20,7 @@
           </div>            
         </div>         
 </footer>
-
+<!-- Finalizando Footer pare inferiror da página  -->
 </body>
 
 </html>

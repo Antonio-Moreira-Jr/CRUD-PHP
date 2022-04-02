@@ -7,7 +7,8 @@ include_once 'includes/message.php';
 include_once 'includes/header.php';
 
 ?>
-<section class="conteudo">
+<!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
+<section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m6 push-m3">
       <h3 class="light">Clientes</h3>
@@ -52,21 +53,17 @@ include_once 'includes/header.php';
                                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                               </form>
                               </div>
-                        </div>
-          
-
-
-
+                        </div>        
                   </tr>
                  <?php endwhile; ?>    
             </tbody>
       </table>
       <br>
-      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a>
-      
+      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a>      
       </div>
 </div>
 </section>
+<!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <?php
 //Footer
 include_once 'includes/footer.php';
