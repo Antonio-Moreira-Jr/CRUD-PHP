@@ -2,18 +2,35 @@
 //Iniciar conexão com o BD
 include_once 'php_action/db.connect.php';
 //Message
-include_once 'includes/message.php'; 
+include_once 'includes/message.php';
+
+// Sessão
+//session_start();
+
+// Verificação
+if(!isset($_SESSION['logado'])):
+	header('Location: main.php');
+endif;
+// Dados
+//$id = $_SESSION['id_usuario'];
+/* $idusuario = $_SESSION['id_usuario'];
+$sql = "SELECT * FROM usuarios WHERE id = '$idusuario'";
+$resultado = mysqli_query($connect, $sql);
+$dados = mysqli_fetch_array($resultado);
+ */
 //Header
 include_once 'includes/header.php';
 
 ?>
-<section class="conteudo">
+<!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
+<section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m6 push-m3">
       <h3 class="light">Clientes</h3>
       <table class="striped z-depth-1"> 
             <thead>
                   <tr>
+                        <th>Foto:</th>
                         <th>Nome:</th>
                         <th>Sobrenome:</th>
                         <th>Email:</th>
@@ -29,9 +46,12 @@ include_once 'includes/header.php';
                   //Variável $resultado que possui a query da tabela cliente
                   $resultado = mysqli_query($connect, $sql);
                   //$dados que recebe o array
-                  while($dados = mysqli_fetch_array($resultado)):
+                  while($dados = mysqli_fetch_array($resultado)):                 
+                  
                   ?>
+                  
                   <tr>
+                        <td><img class="materialboxed" width="80" src="./arquivos/<?php echo $dados['imagem'];?>"></td>                        
                         <td><?php echo $dados['nome'];?> </td>
                         <td><?php echo $dados['sobrenome'];?> </td>
                         <td><?php echo $dados['email'];?> </td>
@@ -52,21 +72,17 @@ include_once 'includes/header.php';
                                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                               </form>
                               </div>
-                        </div>
-          
-
-
-
+                        </div>        
                   </tr>
                  <?php endwhile; ?>    
             </tbody>
       </table>
       <br>
-      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a>
-      
+      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a>      
       </div>
 </div>
 </section>
+<!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <?php
 //Footer
 include_once 'includes/footer.php';

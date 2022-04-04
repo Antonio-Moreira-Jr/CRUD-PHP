@@ -1,14 +1,33 @@
 <?php
 //Header
+include_once 'php_action/db.connect.php';
 include_once 'includes/header.php'; 
-//include_once 'php_action/create.php'; 
+
+/* if(isset($_POST['enviar-formulario'])):
+    $formatosPermitidos = array("pgn", "jpeg", "jpg", "gif");
+    $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
+
+if(in_array($extensao, $formatosPermitidos)):
+    $pasta = "arquivos/"
+    $temporario = $_FILES['arquivo']['tmp_name'];
+    $novoNome = uniqid().".$extensao";
+
+    if(move_uploaded_file($temporario, $pasta.$novoNome)):
+        $_SESSION['mensagem'] = "Upload feito com sucesso!"; 
+    else:
+        $_SESSION['mensagem'] = "Erro, não foi possivel fazer upload!"; 
+else:
+    $_SESSION['mensagem'] = "Formato não Permitido!"; 
+endif;
+endif; */
 
 ?>
-<section class="conteudo">
+<!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
+<section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m6 push-m3">
         <h3 class="light">Cadastro de Cliente</h3>
-            <form action="php_action/create.php" method="POST">
+            <form action="php_action/create.php" method="POST" enctype="multipart/form-data">
                 <div class="input-field col s12">
                     <input type="text" name="nome" id="nome" required>
                     <label for="nome">Nome</label>
@@ -28,8 +47,8 @@ include_once 'includes/header.php';
                  <!-- INICIO Imput Imagem -->
                     <div class="file-field input-field col s10">                    
                         <div class="btn blue darken-2">                        
-                            <input type="file" multiple>
-                            <span>Imagem do Cliente</span>                            
+                            <input type="file" name="arquivo" multiple required>
+                            <span>Imagem do Cliente</span>
                         </div>                        
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Upload one or more files">                            
@@ -44,6 +63,7 @@ include_once 'includes/header.php';
       </div>
 </div>
 </section>
+<!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <?php
 //Footer
 include_once 'includes/footer.php';
