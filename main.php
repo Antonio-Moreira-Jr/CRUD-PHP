@@ -58,7 +58,7 @@ include_once 'includes/header.php';
                         <td><?php echo $dados['idade'];?> </td>
                         <td><a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating blue darken-2"><i class="material-icons">edit</i></a></td>
                         <td><a href="#modal<?php echo $dados['id']; ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
-
+                  
                         <!-- Modal Structure -->
                         <div id="modal<?php echo $dados['id']; ?>" class="modal">
                               <div class="modal-content">
@@ -77,9 +77,12 @@ include_once 'includes/header.php';
                  <?php endwhile; ?>    
             </tbody>
       </table>
+      
       <br>
-      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a>      
+      <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a> 
+           
       </div>
+    
 </div>
 </section>
 <!-- Finalizando a Sessão criada para colocar o conteúdo entre o Header e o Footer -->

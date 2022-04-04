@@ -111,7 +111,7 @@ endif;
 </header>
 <section class="conteudo">
 <div class= "row login">    
-        <div>
+        <div>            
         	<h3 class="light center">Login</h3>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="input-field col s12 ">

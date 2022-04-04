@@ -1,6 +1,6 @@
 <?php
 //Sessão
-//session_start();
+session_start();
 //Iniciando com a conexão ao BD
 require_once 'db.connect.php';
 //Condição; Botão cadastrar presssionado.
@@ -16,7 +16,7 @@ if(isset($_POST['btn-cadastrar'])):
     $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
 
     if(in_array($extensao, $formatosPermitidos)):
-        $pasta = "../arquivos/";
+        $pasta = "../arquivos/";        
         $temporario = $_FILES['arquivo']['tmp_name'];
         $novoNome = uniqid().".$extensao";
 
@@ -36,10 +36,10 @@ if(isset($_POST['btn-cadastrar'])):
     ('$nome', '$sobrenome', '$email', '$idade', '$novoNome')";
 //Condição: Conexão efetuada e query passada.
     if(mysqli_query($connect, $sql)):
-        //$_SESSION['mensagem'] = "Cadastrado com Sucesso!!";        
-        header('Location: ../main.php?sucesso');
+        $_SESSION['mensagem'] = "Cadastrado com Sucesso!!";        
+        header('Location: ../main.php');
     else:
         $_SESSION['mensagem'] = "Erro ao cadastrar!!";
-        header('Location: ../main.php?erro');
+        header('Location: ../main.php');
     endif;
 endif;
