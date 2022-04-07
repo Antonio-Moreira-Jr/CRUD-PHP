@@ -44,7 +44,30 @@ include_once 'includes/header.php';
 <section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
 <div class= "row">
       <div class= "col s12 m6 push-m3">
-      <h3 class="light">Clientes</h3>
+            
+                  <h3 class="light">Clientes</h3>
+                  <div class="col s12 valign-wrapper">                  
+                  <div class="col s12 center-align">
+                              <div class="col s8"><strong>Localizar Cliente:</strong>                        
+                                    <div class="input-field inline">
+                                    <input id="filtronome" type="text" >
+                                    <label for="filtronome">Nome</label>            
+                                    </div>          
+                              </div>
+                              <div class="input-field col s4">
+                              <select>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">Nome</option>
+                                    <option value="1">idade</option>
+                                    <option value="1">Sobrenome</option>
+                                    <option value="1">Email</option>
+                              </select>
+                              <label>Selecione o campo</label>
+                        </div>
+                  </div>
+                  <div class="col s4" ><a class="waves-effect waves-light btn-small blue darken-2"><i class="material-icons left">search</i>Localizar</a></div>
+            </div> 
+            
       <table class="striped z-depth-1"> 
             <thead>
                   <tr>
