@@ -11,14 +11,32 @@ include_once 'includes/message.php';
 if(!isset($_SESSION['logado'])):
 	header('Location: main.php');
 endif;
-// Dados
-//$id = $_SESSION['id_usuario'];
-/* $idusuario = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM usuarios WHERE id = '$idusuario'";
-$resultado = mysqli_query($connect, $sql);
-$dados = mysqli_fetch_array($resultado);
- */
-//Header
+/* INICIO PAGINAÇÂO PHP */
+//Verificar se está sendo passado na URL a página atual, senao é atribuido a pagina 
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+//Selecionar todos os clientes da tabela
+$result_clientes = "SELECT * FROM clientes";
+$resultado_clientes = mysqli_query($connect, $result_clientes);
+
+//Contar o total de clientes
+$total_clientes = mysqli_num_rows($resultado_clientes);
+
+//Seta a quantidade de clientes por pagina
+$quantidade_pg = 5;
+
+//calcular o número de pagina necessárias para apresentar os clientes
+$num_pagina = ceil($total_clientes/$quantidade_pg);
+
+//Calcular o inicio da visualizacao
+$inicio = ($quantidade_pg*$pagina)-$quantidade_pg;
+
+//Selecionar os clientes a serem apresentado na página
+$result_clientes = "SELECT * FROM clientes limit $inicio, $quantidade_pg";
+$resultado_clientes = mysqli_query($connect, $result_clientes);
+$total_clientes = mysqli_num_rows($resultado_clientes);
+/* INICIO PAGINAÇÂO PHP */
+
 include_once 'includes/header.php';
 
 ?>
@@ -40,15 +58,8 @@ include_once 'includes/header.php';
 
             <tbody>
                   
-                  <?php
-                  //variável sql que vai ser responsável por executar o comando de consulta da tabela
-                  $sql = 'SELECT * FROM clientes';
-                  //Variável $resultado que possui a query da tabela cliente
-                  $resultado = mysqli_query($connect, $sql);
-                  //$dados que recebe o array
-                  while($dados = mysqli_fetch_array($resultado)):                 
+            <?php while($dados = mysqli_fetch_assoc($resultado_clientes)){ ?>
                   
-                  ?>
                   
                   <tr>
                         <td><img class="materialboxed" width="80" src="./arquivos/<?php echo $dados['imagem'];?>"></td>                        
@@ -74,10 +85,44 @@ include_once 'includes/header.php';
                               </div>
                         </div>        
                   </tr>
-                 <?php endwhile; ?>    
+                  <?php } ?>   
             </tbody>
       </table>
+
+      <?php
+				//Verificar a pagina anterior e posterior
+				$pagina_anterior = $pagina - 1;
+				$pagina_posterior = $pagina + 1;
+			?>
       
+  <ul class="pagination center">
+    <li class="disabled"><?php
+	if($pagina_anterior != 0){ ?><a href="main.php?pagina=<?php echo $pagina_anterior; ?>"><i class="material-icons">chevron_left</i></a>
+      <?php }else{ ?>
+		
+	<?php }  ?>
+      </li>
+      
+      <?php 
+	//Apresentar a paginacao
+	for($i = 1; $i < $num_pagina + 1; $i++){?>
+            <?php if($i == $pagina){?>
+                  <li class="active blue darken-2"><a href="main.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+            
+            <?php }else{ ?>
+                  <li class="waves-effect"><a href="main.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+            <?php }  ?>
+
+      <?php } ?>  
+    
+    <li class="waves-effect">
+    <?php
+	if($pagina_posterior <= $num_pagina){ ?><a href="main.php?pagina=<?php echo $pagina_posterior; ?>"><i class="material-icons">chevron_right</i></a>
+      <?php }else{ ?>
+     
+      <?php }  ?>
+      </li>
+  </ul>
       <br>
       <a href="adicionar.php" class="btn blue darken-2">Adicionar Cliente</a> 
            

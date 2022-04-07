@@ -98,19 +98,11 @@ endif;
   
     <div class="nav-wrapper blue darken-2 ">
       <div class="container">
-        <a href="index.php" class="brand-logo"><i class="material-icons">cloud</i>Sistema de Cadastramento de Clientes</a>
-      <!-- </div>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="main.php"><i class="material-icons">search</i></a></li>
-        <li><a href="main.php"><i class="material-icons">view_module</i></a></li>
-        <li><a href="main.php"><i class="material-icons">refresh</i></a></li>
-        <li><a href="logout.php"><i class="material-icons">exit_to_app</i></a></li>
-      </ul>
-    </div>     -->
+        <a href="index.php" class="brand-logo"><i class="material-icons">cloud</i>Sistema de Cadastramento de Clientes</a>      
 </nav>
 </header>
-<section class="conteudo">
-<div class= "row login">    
+<section class="conteudo valign-wrapper">
+<div class= "row login center-align">    
         <div>            
         	<h3 class="light center">Login</h3>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -122,13 +114,13 @@ endif;
                     <input type="password" name="senha" id="senha" value="<?php echo isset($_COOKIE['senha']) ? $_COOKIE['senha'] : '' ?>">
                     <label for="senha">Senha</label>
                 </div> 
-                <div class="col m4 push-m1">
+                <div class="col m3 push-m1">
                 <label>
                     <input type="checkbox" class="filled-in"  />
                     <span>Lembrar Senha</span>
                 </label>
                 </div>
-				<div class="col  m4">  
+				<div class="col m6">  
                 <button type="submit" name="btn-entrar" class="btn">Entrar</button>
 				</div>                
             </form>      

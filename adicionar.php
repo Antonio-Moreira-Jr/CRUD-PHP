@@ -2,25 +2,6 @@
 //Header
 include_once 'php_action/db.connect.php';
 include_once 'includes/header.php'; 
-
-/* if(isset($_POST['enviar-formulario'])):
-    $formatosPermitidos = array("pgn", "jpeg", "jpg", "gif");
-    $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
-
-if(in_array($extensao, $formatosPermitidos)):
-    $pasta = "arquivos/"
-    $temporario = $_FILES['arquivo']['tmp_name'];
-    $novoNome = uniqid().".$extensao";
-
-    if(move_uploaded_file($temporario, $pasta.$novoNome)):
-        $_SESSION['mensagem'] = "Upload feito com sucesso!"; 
-    else:
-        $_SESSION['mensagem'] = "Erro, não foi possivel fazer upload!"; 
-else:
-    $_SESSION['mensagem'] = "Formato não Permitido!"; 
-endif;
-endif; */
-
 ?>
 <!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
