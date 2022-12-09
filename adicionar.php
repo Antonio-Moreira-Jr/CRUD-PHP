@@ -1,8 +1,7 @@
 <?php
 //Header
+include_once 'php_action/db.connect.php';
 include_once 'includes/header.php'; 
-//include_once 'php_action/create.php'; 
-
 ?>
 <!-- Sessão criada para colocar o conteúdo entre o Header e o Footer -->
 <section class="conteudo"> <!-- CSS conteudo para tudo que for inserido no meio da página ficar até o final limitado pelo Footer -->
@@ -29,8 +28,8 @@ include_once 'includes/header.php';
                  <!-- INICIO Imput Imagem -->
                     <div class="file-field input-field col s10">                    
                         <div class="btn blue darken-2">                        
-                            <input type="file" name="imagem">
-                            <span>Imagem do Cliente</span>                            
+                            <input type="file" name="arquivo" multiple required>
+                            <span>Imagem do Cliente</span>
                         </div>                        
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Upload one or more files">                            

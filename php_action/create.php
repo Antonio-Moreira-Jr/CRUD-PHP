@@ -10,31 +10,36 @@ if(isset($_POST['btn-cadastrar'])):
     $sobrenome = mysqli_escape_string($connect, $_POST['sobrenome']);
     $email = mysqli_escape_string($connect, $_POST['email']);
     $idade = mysqli_escape_string($connect, $_POST['idade']);
-//upload do arquivo antes
-    $dir = "../CRUD-PHP/imagens";
-//recebendo o arquivo multipart
-    $file = $_FILES["imagem"];
 
-    $destino= "$dir/".$file["name"];
+    //Validando formado da imagem
+    $formatosPermitidos = array("pgn", "jpeg", "jpg", "gif");
+    $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
 
-if(move_uploaded_file($file["tmp_name"], $destino)){
-    echo "Arquivo enviado com sucesso";
-}
-else {
-    echo "Erro, o arquivo não pode ser enviado.";
-}
+    if(in_array($extensao, $formatosPermitidos)):
+        $pasta = "../arquivos/";        
+        $temporario = $_FILES['arquivo']['tmp_name'];
+        $novoNome = uniqid().".$extensao";
 
-//Query criando o cliente no BD.
+        if(move_uploaded_file($temporario, $pasta.$novoNome)):
+            $_SESSION['mensagem'] = "Upload feito com sucesso!"; 
+        else:
+            $_SESSION['mensagem'] = "Erro, não foi possivel fazer upload!"; 
+        endif;
+        else:
+    $_SESSION['mensagem'] = "Formato não Permitido!"; 
+    endif;
+
+    //Fim da criação da Imagem
+
+    //Query criando o cliente no BD.
     $sql = "INSERT INTO clientes (nome, sobrenome, email, idade, imagem) VALUES 
-    ('$nome', '$sobrenome', '$email', '$idade', '$destino')";
+    ('$nome', '$sobrenome', '$email', '$idade', '$novoNome')";
 //Condição: Conexão efetuada e query passada.
     if(mysqli_query($connect, $sql)):
         $_SESSION['mensagem'] = "Cadastrado com Sucesso!!";        
-        header('Location: ../main.php?sucesso');
+        header('Location: ../main.php');
     else:
         $_SESSION['mensagem'] = "Erro ao cadastrar!!";
-        header('Location: ../main.php?erro');
+        header('Location: ../main.php');
     endif;
-    
 endif;
-
